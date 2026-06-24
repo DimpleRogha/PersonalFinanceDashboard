@@ -1,4 +1,7 @@
 import KPICard from "../components/dashboard/KPICard";
+import Filter from "../components/dashboard/Filter"; 
+import IncomeExpenseChart from "../components/dashboard/Charts/IncomeExpenseChart";
+import TransactionTable from "../components/dashboard/TransactionTable";
 
 import {
     FaWallet, 
@@ -6,6 +9,7 @@ import {
     FaPiggyBank,
     FaBullseye,
 } from "react-icons/fa";
+import SearchBar from "../components/dashboard/SearchBar";
 
 const Dashboard = () => {
   return (
@@ -46,6 +50,19 @@ const Dashboard = () => {
           positive={true}
           icon={<FaBullseye />}
         />
+
+        <div className="mb-8 flex items-center justify-between">
+            <SearchBar />
+            <Filter />
+        </div>
+
+        <div className="mb-8">
+            <IncomeExpenseChart />
+        </div>
+
+        <TransactionTable />
+
+
       </div>
     </>
   );
