@@ -1,3 +1,6 @@
+import { incomeExpenseData } from "../../../data/incomeExpenseData";
+import { theme } from "../../../styles/theme";
+
 import {
   LineChart,
   Line,
@@ -5,31 +8,57 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  CartesianGrid,
 } from "recharts";
-
-const data = [
-  { month: "Jan", income: 50000, expense: 35000 },
-  { month: "Feb", income: 60000, expense: 42000 },
-  { month: "Mar", income: 55000, expense: 39000 },
-  { month: "Apr", income: 70000, expense: 48000 },
-];
 
 const IncomeExpenseChart = () => {
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-sm">
-      <h2 className="mb-6 text-xl font-semibold">
-        Income vs Expenses
-      </h2>
+    <div className="w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-slate-800">
+          Income vs Expenses
+        </h2>
 
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={data}>
-          <XAxis dataKey="month" />
-          <YAxis />
+        <p className="mt-1 text-sm text-slate-500">
+          Monthly comparison
+        </p>
+      </div>
+
+      <ResponsiveContainer width="100%" height={340}>
+        <LineChart data={incomeExpenseData}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="#E2E8F0"
+          />
+
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            axisLine={false}
+          />
+
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+          />
+
           <Tooltip />
 
-          <Line dataKey="income" />
+          <Line
+            type="monotone"
+            dataKey="income"
+            stroke={theme.colors.success}
+            strokeWidth={3}
+            dot={{ r: 4 }}
+          />
 
-          <Line dataKey="expense" />
+          <Line
+            type="monotone"
+            dataKey="expense"
+            stroke={theme.colors.danger}
+            strokeWidth={3}
+            dot={{ r: 4 }}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>

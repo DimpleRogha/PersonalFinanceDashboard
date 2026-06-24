@@ -1,24 +1,32 @@
 import KPICard from "../components/dashboard/KPICard";
-import Filter from "../components/dashboard/Filter"; 
+import SearchBar from "../components/dashboard/SearchBar";
+import Filter from "../components/dashboard/Filter";
+
 import IncomeExpenseChart from "../components/dashboard/Charts/IncomeExpenseChart";
+import ExpensePieChart from "../components/dashboard/Charts/ExpensePieChart";
+import MonthlyExpenseChart from "../components/dashboard/Charts/MonthlyExpenseChart";
+
 import TransactionTable from "../components/dashboard/TransactionTable";
 
 import {
-    FaWallet, 
-    FaMoneyBillWave,
-    FaPiggyBank,
-    FaBullseye,
+  FaWallet,
+  FaMoneyBillWave,
+  FaPiggyBank,
+  FaBullseye,
 } from "react-icons/fa";
-import SearchBar from "../components/dashboard/SearchBar";
 
 const Dashboard = () => {
   return (
-    <>
-      <h1 className="mb-8 text-3xl font-bold">
-        Dashboard
-      </h1>
+    <div className="space-y-8">
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {/* <h1 className="text-3xl font-bold text-slate-800">
+        Dashboard
+      </h1> */}
+
+      {/* KPI Cards */}
+
+      <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+
         <KPICard
           title="Total Income"
           value="₹85,000"
@@ -51,20 +59,39 @@ const Dashboard = () => {
           icon={<FaBullseye />}
         />
 
-        <div className="mb-8 flex items-center justify-between">
-            <SearchBar />
-            <Filter />
-        </div>
+      </div>
 
-        <div className="mb-8">
-            <IncomeExpenseChart />
-        </div>
+      {/* Search */}
+
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+
+        <SearchBar />
+
+        <Filter />
+
+      </div>
+
+      {/* Charts */}
+
+      <div className="grid gap-6 lg:grid-cols-2">
+
+        <IncomeExpenseChart />
+
+        <ExpensePieChart />
+
+      </div>
+
+      {/* Bottom Section */}
+
+      <div className="grid gap-6 lg:grid-cols-2">
+
+        <MonthlyExpenseChart />
 
         <TransactionTable />
 
-
       </div>
-    </>
+
+    </div>
   );
 };
 

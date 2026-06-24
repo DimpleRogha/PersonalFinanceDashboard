@@ -1,19 +1,4 @@
-const transactions = [
-  {
-    id: 1,
-    date: "22 Jun",
-    description: "Starbucks",
-    category: "Food",
-    amount: "₹450",
-  },
-  {
-    id: 2,
-    date: "21 Jun",
-    description: "Amazon",
-    category: "Shopping",
-    amount: "₹2400",
-  },
-];
+import { transactions } from "../../data/transactions";
 
 const TransactionTable = () => {
   return (
