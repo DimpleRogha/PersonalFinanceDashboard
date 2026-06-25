@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 interface KPICardProps {
   title: string;
-  value: string;
-  change: string;
+  value: number;
+  change: number;
   positive: boolean;
   icon: ReactNode;
 }
@@ -25,7 +25,7 @@ const KPICard = ({
           </p>
 
           <h2 className="mt-3 text-4xl font-bold tracking-tight text-slate-800">
-            {value}
+            ₹{value.toLocaleString("en-IN")}
           </h2>
 
           <div
@@ -35,7 +35,7 @@ const KPICard = ({
                 : "bg-red-100 text-red-700"
             }`}
           >
-            {positive ? "▲" : "▼"} {change} this month
+            {positive ? "▲" : "▼"} {Math.abs(change).toFixed(1)}% this month
           </div>
         </div>
 
