@@ -7,7 +7,8 @@ import {
   Legend,
 } from "recharts";
 
-import { expenseBreakdownData } from "../../../data/expenseBreakdownData";
+import { transactions } from "../../../data/transactions";
+import { getExpenseBreakdown } from "../../../utils/finance";
 import { theme } from "../../../styles/theme";
 
 const COLORS = [
@@ -19,6 +20,8 @@ const COLORS = [
 ];
 
 const ExpensePieChart = () => {
+     const chartData = getExpenseBreakdown(transactions);
+
   return (
     <div className="w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
@@ -34,7 +37,7 @@ const ExpensePieChart = () => {
       <ResponsiveContainer width="100%" height={340}>
         <PieChart>
           <Pie
-            data={expenseBreakdownData}
+            data={chartData}
             dataKey="value"
             nameKey="name"
             cx="50%"
@@ -43,7 +46,7 @@ const ExpensePieChart = () => {
             innerRadius={55}
             paddingAngle={3}
           >
-            {expenseBreakdownData.map((_, index) => (
+            {chartData.map((_, index) => (
               <Cell
                 key={index}
                 fill={COLORS[index % COLORS.length]}

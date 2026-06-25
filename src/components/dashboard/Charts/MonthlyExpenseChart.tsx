@@ -8,10 +8,12 @@ import {
   CartesianGrid,
 } from "recharts";
 
-import { monthlySpendingData } from "../../../data/monthlySpendingData";
+import { transactions } from "../../../data/transactions";
+import { getMonthlySpending } from "../../../utils/finance";
 import { theme } from "../../../styles/theme";
 
 const MonthlyExpenseChart = () => {
+    const chartData = getMonthlySpending(transactions); 
   return (
     <div className="w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
@@ -25,7 +27,7 @@ const MonthlyExpenseChart = () => {
       </div>
 
       <ResponsiveContainer width="100%" height={340}>
-        <BarChart data={monthlySpendingData}>
+        <BarChart data={chartData}>
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="#E2E8F0"

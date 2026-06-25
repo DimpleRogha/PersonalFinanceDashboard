@@ -55,3 +55,56 @@ export const percentageChange = (
     (((current - previous) / previous) * 100).toFixed(1)
   );
 };
+
+export const getIncomeExpenseChartData = (transactions: Transaction[]) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+  return months.map((month, index) => {
+    const monthTransactions = transactions.filter(
+      (transaction) =>
+        new Date(transaction.date).getMonth() === index
+    );
+
+    return {
+      month,
+      income: getIncome(monthTransactions),
+      expense: getExpenses(monthTransactions),
+    };
+  });
+};
+
+export const getExpenseBreakdown = (transactions: Transaction[]) => {
+  const expenses = transactions.filter(
+    (transaction) => transaction.type === "expense"
+  );
+
+  const categories: Record<string, number> = {};
+
+  expenses.forEach((transaction) => {
+    categories[transaction.category] =
+      (categories[transaction.category] || 0) +
+      transaction.amount;
+  });
+
+  return Object.entries(categories).map(([name, value]) => ({
+    name,
+    value,
+  }));
+};
+
+export const getMonthlySpending = (transactions: Transaction[]) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+  return months.map((month, index) => {
+    const monthTransactions = transactions.filter(
+      (transaction) =>
+        transaction.type === "expense" &&
+        new Date(transaction.date).getMonth() === index
+    );
+
+    return {
+      month,
+      spending: getExpenses(monthTransactions),
+    };
+  });
+};

@@ -1,4 +1,6 @@
-import { incomeExpenseData } from "../../../data/incomeExpenseData";
+import { transactions } from "../../../data/transactions";
+import { getIncomeExpenseChartData } from "../../../utils/finance";
+
 import { theme } from "../../../styles/theme";
 
 import {
@@ -12,6 +14,7 @@ import {
 } from "recharts";
 
 const IncomeExpenseChart = () => {
+    const chartData = getIncomeExpenseChartData(transactions);
   return (
     <div className="w-full rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-6">
@@ -25,7 +28,7 @@ const IncomeExpenseChart = () => {
       </div>
 
       <ResponsiveContainer width="100%" height={340}>
-        <LineChart data={incomeExpenseData}>
+        <LineChart data={chartData}>
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="#E2E8F0"
