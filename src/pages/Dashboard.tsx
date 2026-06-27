@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import KPICard from "../components/dashboard/KPICard";
 import SearchBar from "../components/dashboard/SearchBar";
 import Filter from "../components/dashboard/Filter";
@@ -8,6 +10,7 @@ import MonthlyExpenseChart from "../components/dashboard/Charts/MonthlyExpenseCh
 import TransactionTable from "../components/dashboard/TransactionTable";
 
 import { transactions } from "../data/transactions";
+
 
 import {
   calculateIncome,
@@ -27,11 +30,16 @@ import {
 } from "react-icons/fa";
 
 const Dashboard = () => {
-  // Current month = June (month index 5)
-  const currentMonth = 5;
+    const currentMonth = 5;
+    const previousMonth = 4;
+    const [searchQuery, setSearchQuery] = useState("");
 
-  // Previous month = May (month index 4)
-  const previousMonth = 4;
+    const filteredTransactions = transactions.filter((transaction) =>
+        transaction.description
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase())
+    );
+
 
   const currentTransactions = getMonthTransaction(
     transactions,
@@ -116,7 +124,10 @@ const Dashboard = () => {
       {/* Search + Filter */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 
-        <SearchBar />
+        <SearchBar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+        />
 
         <Filter />
 
@@ -136,7 +147,9 @@ const Dashboard = () => {
 
         <MonthlyExpenseChart />
 
-        <TransactionTable />
+        <TransactionTable 
+            transactions={filteredTransactions}
+        />
 
       </div>
 
