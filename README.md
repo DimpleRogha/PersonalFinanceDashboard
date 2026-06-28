@@ -1,75 +1,168 @@
-# React + TypeScript + Vite
+# Personal Finance Dashboard - FinSight
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive **Personal Finance Dashboard** built using **React**, **TypeScript**, **Tailwind CSS**, and **Recharts**. The dashboard provides users with an intuitive interface to visualize financial data through interactive charts, KPI cards, and transaction analytics.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Features
 
-## React Compiler
+* Interactive Analytics Dashboard
+* KPI Cards
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+  * Total Income
+  * Total Expenses
+  * Total Savings
+  * Budget Left
+* Income vs Expenses Line Chart
+* Expense Breakdown Pie Chart
+* Monthly Spending Bar Chart
+* Search Transactions
+* Filter Transactions by Category
+* Recent Transactions Table
+* Fully Responsive Design
+* Modern UI with Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Technology   | Usage              |
+| ------------ | ------------------ |
+| React        | Frontend Framework |
+| TypeScript   | Static Typing      |
+| Tailwind CSS | Styling            |
+| Recharts     | Data Visualization |
+| React Icons  | Icons              |
+| Vite         | Build Tool         |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Folder Structure
 
+```text
+src
+├── components
+│   ├── dashboard
+│   │   ├── Charts
+│   │   ├── Filter.tsx
+│   │   ├── KPICard.tsx
+│   │   ├── SearchBar.tsx
+│   │   └── TransactionTable.tsx
+│   ├── layout
+│   └── common
+│
+├── data
+├── pages
+├── styles
+├── types
+├── utils
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Clone the repository
 
+```bash
+git clone https://github.com/your-username/personal-finance-dashboard.git
 ```
+
+### Navigate to the project directory
+
+```bash
+cd personal-finance-dashboard
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+The application will be available at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 📸 Screenshots
+
+* Dashboard
+
+![alt text](dashboard.png)
+
+* Charts
+
+![alt text](charts1.png)
+![alt text](charts2.png)
+
+* Transactions
+
+![alt text](transactions.png)
+
+---
+
+## 📊 Dashboard Modules
+
+* KPI Cards
+* Search Bar
+* Category Filter
+* Income vs Expenses Chart
+* Expense Breakdown Chart
+* Monthly Spending Chart
+* Recent Transactions Table
+
+---
+
+## 🎯 Future Enhancements
+
+* Add New Transactions
+* Edit Transactions
+* Delete Transactions
+* Date Range Filter
+* Sorting Options
+* Budget Management
+* Export Reports (CSV/PDF)
+* Dark Mode
+* User Authentication
+* Backend Integration
+
+---
+
+## 📚 Learning Outcomes
+
+* Component-based architecture using React
+* State management with React Hooks
+* Type-safe development using TypeScript
+* Responsive UI design with Tailwind CSS
+* Data visualization using Recharts
+* Search and filtering techniques
+* Reusable utility functions
+* Scalable project structure
+
+---
+
+## 👨‍💻 Author
+
+**Dimple Rogha**
+
+BCA (Artificial Intelligence & Machine Learning)
+
+UPES Dehradun
+
+---
+
+## 📄 License
+
+This project was developed for educational and internship purposes.
