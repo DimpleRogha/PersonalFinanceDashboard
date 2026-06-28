@@ -33,12 +33,23 @@ const Dashboard = () => {
     const currentMonth = 5;
     const previousMonth = 4;
     const [searchQuery, setSearchQuery] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const filteredTransactions = transactions.filter((transaction) =>
+    const filteredTransactions = transactions.filter((transaction) => {
+        const matchesSearch =
         transaction.description
             .toLowerCase()
-            .includes(searchQuery.toLowerCase())
-    );
+            .includes(searchQuery.toLowerCase()) ||
+        transaction.category
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
+
+        const matchesCategory =
+        selectedCategory === "All" ||
+        transaction.category === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
 
 
   const currentTransactions = getMonthTransaction(
@@ -129,7 +140,10 @@ const Dashboard = () => {
             setSearchQuery={setSearchQuery}
         />
 
-        <Filter />
+        <Filter 
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+        />
 
       </div>
 

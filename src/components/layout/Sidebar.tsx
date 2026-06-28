@@ -31,10 +31,10 @@ const Sidebar = () => {
           Transactions
         </button>
 
-        <button className="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
+        {/* <button className="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
           <HiOutlineChartBar size={22} />
           Analytics
-        </button>
+        </button> */}
 
         <button className="flex items-center gap-3 rounded-xl px-4 py-3 text-slate-600 transition hover:bg-slate-100">
           <HiOutlineCog6Tooth size={22} />
