@@ -1,7 +1,7 @@
 import {
   HiOutlineHome,
   HiOutlineCreditCard,
-  HiOutlineChartBar,
+//   HiOutlineChartBar,
   HiOutlineCog6Tooth,
 } from "react-icons/hi2";
 
